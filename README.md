@@ -6,6 +6,8 @@ A Ansible playbook that configures a Ubuntu client for Ansible and Terraform dev
 
 I created this playbook so that someone who is not familiar with Ansible or Terraform can easly spin up a environment where the needed tools (I.E: `Ansible`,`Terrform`,`doctl`, `azure-cli`, `aws-cli`, `molecule`) and a IDE are neatly configured for them.
 
+![vscode](vscode.png)
+
 **Note:** Preferably run this in a VM, not on your actual machine. This playbook might overwrite some exisiting settings if you are using some of these tools. Once you are familiar with Ansible just create your own playbook that set these things up for you :wink:
 
 ## Installation
