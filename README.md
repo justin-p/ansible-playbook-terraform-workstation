@@ -2,7 +2,7 @@
 
 ![Github Actions](https://img.shields.io/github/workflow/status/justin-p/ansible-terraform-workstation/CI?label=Github%20Actions&logo=github&style=flat-square)
 
-A Ansible playbook that configures a workstations for Ansible and Terraform development in VS Code.
+A Ansible playbook that configures a Ubuntu client for Ansible and Terraform development in VS Code.
 
 I created this playbook so that someone who is not familiar with Ansible or Terraform can easly spin up a environment where the needed tools (I.E: `Ansible`,`Terrform`,`doctl`, `azure-cli`, `aws-cli`, `molecule`) and a IDE are neatly configured for them.
 
