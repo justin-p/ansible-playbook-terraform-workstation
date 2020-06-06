@@ -23,3 +23,7 @@ I created this playbook so that someone who is not familiar with Ansible or Terr
 3. `./setup.sh`
 4. Enter sudo password
 5. Reboot the system.
+
+## Contributing
+
+Feel free to open issues, contribute and submit your Pull Requests. You can also ping me on Twitter ([@JustinPerdok](https://twitter.com/JustinPerdok))
