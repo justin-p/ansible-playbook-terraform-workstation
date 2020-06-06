@@ -13,6 +13,7 @@
   service:
     name: snapd
     state: started
+  become: yes
 
 - name: Install packages using snap.
   snap:
