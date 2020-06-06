@@ -20,9 +20,12 @@ I created this playbook so that someone who is not familiar with Ansible or Terr
 
 1. `git clone https://github.com/justin-p/ansible-terraform-workstation`
 2. `cd ansible-terraform-workstation`
-3. `./setup.sh`
-4. Enter sudo password
-5. Reboot the system.
+4. `sudo apt-get update -y && sudo apt-get install git curl python3 python3-pip`
+5. `pip3 install --user ansible `
+6. `export PATH=$PATH:/$HOME/.local/bin`
+7. `ansible-galaxy install -r files/requirements.yml`
+8. `ansible-playbook main.yml -i inventory.yml`
+9. Reboot the system.
 
 ## Contributing
 
