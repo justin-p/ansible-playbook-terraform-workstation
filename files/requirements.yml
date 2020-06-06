@@ -1,0 +1,9 @@
+---
+  - name: diodonfrost.terraform
+    version: 1.2.0
+  - name: geerlingguy.docker
+    version: 2.7.0
+  - name: huxoll.azure-cli
+    version: 1.1.1
+  - name: freedomofpress.doctl
+    src: https://github.com/freedomofpress/ansible-role-doctl

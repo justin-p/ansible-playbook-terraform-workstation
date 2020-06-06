@@ -1,0 +1,10 @@
+---
+- hosts: local
+  tasks:
+    - name: Install packages.
+      include: tasks/packages.yml
+
+    - name: Configure vscode.
+      include: tasks/vscode.yml
+
+- import_playbook: "{{ playbook_dir }}/tasks/roles.yml"

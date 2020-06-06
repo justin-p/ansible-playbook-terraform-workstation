@@ -1,0 +1,27 @@
+---
+- name: Install vscode extension.
+  command: "code --install-extension {{ item }}"
+  become: no
+  register: result
+  with_items:
+    - vscoss.vscode-ansible
+    - hashicorp.terraform
+    - bbenoist.vagrant
+    - amazonwebservices.aws-toolkit-vscode
+    - ms-vscode.vscode-node-azure-pack
+    - editorconfig.editorconfig
+    - eamodio.gitlens
+    - yzhang.markdown-all-in-one
+    - ms-azuretools.vscode-docker
+    - pkief.material-icon-theme
+    - beardedbear.beardedtheme
+    - aaron-bond.better-comments
+  changed_when:
+    - result.stdout is not search('is already installed.')
+    - (result.stdout is search('hashicorp')) and False
+
+- name: Apply vscode settings.
+  copy:
+    src: "{{ playbook_dir }}/files/settings.json"
+    dest: $HOME/.config/Code/User/settings.json
+    backup: true

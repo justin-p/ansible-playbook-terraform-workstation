@@ -1,0 +1,8 @@
+{
+  "workbench.colorTheme": "BeardedTheme Black & Diamond",
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.folders.theme": "specific",
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": true
+}
