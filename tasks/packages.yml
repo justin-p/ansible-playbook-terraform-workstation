@@ -1,13 +1,10 @@
 ---
 - name: Install packages using the systems package manager.
-  package:
-    name: "{{ item }}"
+  apt:
+    name: ['tmux', 'snapd']
     update_cache: true
     state: present
   become: yes
-  with_items:
-    - tmux
-    - snapd
 
 - name: Ensure the snap service is started.
   service:
