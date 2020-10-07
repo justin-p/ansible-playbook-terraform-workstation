@@ -29,6 +29,41 @@ I created this playbook so that someone who is not familiar with Ansible or Terr
 8. `ansible-playbook main.yml -i inventory.yml`
 9. Reboot the system.
 
+## Local Development
+
+This playbook includes Molecule that will spin up a local docker environment to deploy, configure and test this playbook.
+
+Development requirements:
+
+- Docker
+- Molecule
+- yamllint
+- ansible-lint
+
+or simply use a VM with [this](https://github.com/justin-p/ansible-terraform-workstation) configuration.
+
+### Basic molecule usage
+
+- Build a container and apply the current playbook: `molecule converge`  
+Note, when using converge the container is not destoryed, allowing you to quickly test changes by running this command consecutive times.
+
+- Interact with the containers created by molecule: `molecule login`  
+Note, this works great with converge allowing you to peek inside the container and manually check why things didnt work.
+
+- Remove any containers left over from the converge command: `molecule destroy`
+
+- Run a the playbook and any included tests against clean containers: `molecule test`
+
+- Apply tests defined in the `verify.yml` file: `molecule verify`
+
+## License
+
+MIT
+
+## Authors
+
+Justin Perdok ([@justin-p](https://github.com/justin-p/))
+
 ## Contributing
 
-Feel free to open issues, contribute and submit your Pull Requests. You can also ping me on Twitter ([@JustinPerdok](https://twitter.com/JustinPerdok))
+Feel free to open issues, contribute and submit your Pull Requests. You can also ping me on Twitter ([@JustinPerdok](https://twitter.com/JustinPerdok)).
