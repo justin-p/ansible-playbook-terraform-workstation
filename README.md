@@ -20,8 +20,8 @@ I created this playbook so that someone who is not familiar with Ansible or Terr
 
 ### Manual
 
-1. `git clone https://github.com/justin-p/ansible-terraform-workstation`
-2. `cd ansible-terraform-workstation`
+1. `git clone https://github.com/justin-p/ansible-playbook-terraform-workstation`
+2. `cd ansible-playbook-terraform-workstation`
 4. `sudo apt-get update -y && sudo apt-get install git curl python3 python3-pip`
 5. `pip3 install --user ansible `
 6. `export PATH=$PATH:/$HOME/.local/bin`
