@@ -52,7 +52,7 @@ Note, this works great with converge allowing you to peek inside the container a
 
 - Remove any containers left over from the converge command: `molecule destroy`
 
-- Run a the playbook and any included tests against clean containers: `molecule test`
+- Run the playbook and any included tests against clean containers: `molecule test`
 
 - Apply tests defined in the `verify.yml` file: `molecule verify`
 
