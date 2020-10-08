@@ -1,10 +1,75 @@
+---
 - name: Verify
   hosts: all
   tasks:
-    - name: Gather service facts
-      service_facts:
-      register: services_state
+    - name: Gather info from doctl
+      command: /snap/doctl/current/bin/doctl.real version
+      register: doctl
+      changed_when: false
 
-    - name: Verify that facts about services where gathered
+    - name: Gather info from aws-cli
+      command: /root/.local/bin/aws --version
+      register: aws
+      changed_when: false
+
+    - name: Gather info from ansible-lint
+      shell:  export LC_ALL=C.UTF-8;export LANG=C.UTF-8;/root/.local/bin/molecule --version
+      register: molecule
+      changed_when: false
+
+    - name: Gather info from yamllint
+      command: /root/.local/bin/yamllint --version
+      register: yamllint
+      changed_when: false
+
+    - name: Gather info from ansible-lint
+      command: /root/.local/bin/ansible-lint --version
+      register: ansible_lint
+      changed_when: false
+
+    - name: Gather info from python docker libary
+      command: pip3 list --format=legacy | grep docker
+      register: docker_pip
+      changed_when: false
+
+    - name: Gather info from azure-cli
+      command: az -v
+      register: azure
+      changed_when: false
+
+    - name: Gather info from terraform
+      command: terraform --version
+      register: terraform
+      changed_when: false
+
+    - name: Verify that facts about doctl where gathered
       assert:
-        that: services_state.ansible_facts
+        that: doctl.stdout
+
+    - name: Verify that facts about aws where gathered
+      assert:
+        that: aws.stdout
+
+    - name: Verify that facts about molecule where gathered
+      assert:
+        that: molecule.stdout
+
+    - name: Verify that facts about yamllint where gathered
+      assert:
+        that: yamllint.stdout
+
+    - name: Verify that facts about ansible-lint where gathered
+      assert:
+        that: ansible_lint.stdout
+
+    - name: Verify that facts about python docker libary where gathered
+      assert:
+        that: docker_pip.stdout
+
+    - name: Verify that facts about azure where gathered
+      assert:
+        that: azure.stdout
+
+    - name: Verify that facts about terraform where gathered
+      assert:
+        that: terraform.stdout
