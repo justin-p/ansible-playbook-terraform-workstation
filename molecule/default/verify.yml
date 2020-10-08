@@ -28,7 +28,7 @@
       changed_when: false
 
     - name: Gather info from python docker libary
-      command: pip3 list --format=legacy | grep docker
+      command: pip3 list --format=columns | grep docker
       register: docker_pip
       changed_when: false
 
