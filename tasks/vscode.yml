@@ -19,6 +19,8 @@
   changed_when:
     - result.stdout is not search('is already installed.')
     - (result.stdout is search('hashicorp')) and False
+  tags:
+    - molecule-notest
 
 - name: Apply vscode settings.
   copy:

@@ -1,0 +1,41 @@
+---
+- name: Prepare
+  hosts: all
+  pre_tasks:
+    - name: Create .ssh folder in the users home folder (for github actions).
+      file:
+        path: "~/.ssh/"
+        mode: '0700'
+        state: directory
+      delegate_to: localhost
+
+    - name: Ensure needed ssh keypair is created.
+      openssh_keypair:
+        path: "~/.ssh/id_rsa"
+      delegate_to: localhost
+
+    - name: Update apt cache.
+      apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install OpenSSH.
+      apt:
+        name: openssh-server
+
+    - name: Install fuse filesystem for snapd
+      apt:
+        name: ['squashfuse', 'fuse', 'snapd']
+
+    - name: Fixes snapd in docker
+      shell: "{{ item }}"
+      with_items:
+        - SNAPCRAFT_SETUP_CORE=1
+        - service snapd start
+        - snap install hello-world --classic >/dev/null 2>&1; snap install hello-world --classic
+
+    - name: Create vscode user directory
+      file:
+        path: /root/.config/Code/User
+        mode: 0755
+        state: directory

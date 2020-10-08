@@ -11,7 +11,7 @@ on:
       - '.gitignore'
       - '.editorconfig'
       - '.ansible-lint'
-      - '.yamllint'    
+      - '.yamllint'
   pull_request:
     branches: [ master ]
     paths-ignore:
@@ -21,7 +21,7 @@ on:
       - '.gitignore'
       - '.editorconfig'
       - '.ansible-lint'
-      - '.yamllint'    
+      - '.yamllint'
   schedule:
     - cron: "0 16 * * *"
 
@@ -47,8 +47,8 @@ jobs:
       - name: Install test dependencies.
         run: pip3 install molecule docker yamllint ansible-lint
 
-      - name: Run Molecule lint.
-        run: molecule lint
+      - name: Run Molecule tests.
+        run: molecule test
         env:
           PY_COLORS: '1'
           ANSIBLE_FORCE_COLOR: '1'

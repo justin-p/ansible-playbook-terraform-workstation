@@ -1,9 +1,11 @@
 ---
-- hosts: local
+- hosts: all
   become: yes
   roles:
     - role: diodonfrost.terraform
     - role: geerlingguy.docker
       vars:
         docker_users: "{{ lookup('env','USER') }}"
+      tags:
+        - molecule-notest
     - role: huxoll.azure-cli

@@ -8,12 +8,15 @@
   with_items:
     - tmux
     - snapd
+    - unzip
 
 - name: Ensure the snap service is started.
   service:
     name: snapd
     state: started
   become: yes
+  tags:
+    - molecule-notest
 
 - name: Install packages using snap.
   snap:

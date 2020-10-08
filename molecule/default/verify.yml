@@ -1,0 +1,10 @@
+- name: Verify
+  hosts: all
+  tasks:
+    - name: Gather service facts
+      service_facts:
+      register: services_state
+
+    - name: Verify that facts about services where gathered
+      assert:
+        that: services_state.ansible_facts

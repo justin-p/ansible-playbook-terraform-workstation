@@ -6,7 +6,7 @@ A Ansible playbook that configures a Ubuntu client for Ansible and Terraform dev
 
 I created this playbook so that someone who is not familiar with Ansible or Terraform can easly spin up a environment where the needed tools (I.E: `Ansible`,`Terrform`,`doctl`, `azure-cli`, `aws-cli`, `molecule`) and a IDE are neatly configured for them.
 
-![vscode](vscode.png)
+![vscode](img/vscode.png)
 
 **Note:** Preferably run this in a VM, not on your actual machine. This playbook might overwrite some exisiting settings if you are using some of these tools. Once you are familiar with Ansible just create your own playbook that set these things up for you :wink:
 
@@ -44,10 +44,10 @@ or simply use a VM with [this](https://github.com/justin-p/ansible-terraform-wor
 
 ### Basic molecule usage
 
-- Build a container and apply the current playbook: `molecule converge`  
+- Build a container and apply the current playbook: `molecule converge`
 Note, when using converge the container is not destroyed, allowing you to quickly test changes by running this command consecutive times.
 
-- Interact with the containers created by molecule: `molecule login`  
+- Interact with the containers created by molecule: `molecule login`
 Note, this works great with converge allowing you to peek inside the container and manually check why things didnt work.
 
 - Remove any containers left over from the converge command: `molecule destroy`
