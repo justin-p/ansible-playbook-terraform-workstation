@@ -31,6 +31,7 @@
   pip:
     name:
       - molecule
+      - 'molecule-docker'
       - ansible-lint
       - yamllint
       - awscli
