@@ -1,11 +1,11 @@
 ---
 - hosts: all # noqa parser-error
-  become: yes
+  become: yes # noqa parser-error
   roles: # noqa parser-error
-    - role: diodonfrost.terraform
-    - role: geerlingguy.docker
+    - role: diodonfrost.terraform # noqa parser-error
+    - role: geerlingguy.docker # noqa parser-error
       vars:
         docker_users: "{{ lookup('env','USER') }}"
       tags:
         - molecule-notest
-    - role: huxoll.azure-cli
+    - role: huxoll.azure-cli # noqa parser-error
