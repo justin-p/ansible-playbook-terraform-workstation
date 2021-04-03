@@ -5,3 +5,7 @@ exclude_paths:
   - .github/
   - molecule/
   - .cache/
+  - ${HOME}/.ansible/roles/
+  - tasks/roles.yml
+skip_list:
+  - experimental
