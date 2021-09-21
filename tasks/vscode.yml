@@ -4,7 +4,7 @@
   become: no
   register: result
   with_items:
-    - vscoss.vscode-ansible
+    - redhat.ansible
     - hashicorp.terraform
     - bbenoist.vagrant
     - amazonwebservices.aws-toolkit-vscode
