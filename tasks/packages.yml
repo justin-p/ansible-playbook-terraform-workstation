@@ -1,5 +1,5 @@
 ---
-- name: Install packages using the systems package manager.
+- name: Install packages using the systems package manager
   package:
     name: "{{ item }}"
     update_cache: true
@@ -10,7 +10,7 @@
     - snapd
     - unzip
 
-- name: Ensure the snap service is started.
+- name: Ensure the snap service is started
   service:
     name: snapd
     state: started
@@ -18,7 +18,7 @@
   tags:
     - molecule-notest
 
-- name: Install packages using snap.
+- name: Install packages using snap
   snap:
     name: "{{ item.name }}"
     classic: "{{ item.classic }}"
@@ -27,7 +27,7 @@
     - { name: code, classic: yes }
     - { name: doctl, classic: no }
 
-- name: Install packages using pip3.
+- name: Install packages using pip3
   pip:
     name:
       - molecule
