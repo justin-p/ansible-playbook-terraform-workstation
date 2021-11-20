@@ -38,3 +38,27 @@
       - docker
     executable: pip3
     extra_args: --user
+
+- name: Check if tfenv installed
+  command: which tfenv
+  changed_when: false
+  failed_when: false
+  register: tfenv_install
+  
+- name: Clone tfenv
+  git:
+    repo: https://github.com/tfutils/tfenv
+    dest: "{{ ansible_user_dir }}/.tfenv"
+  when: tfenv_install.rc != 0
+
+- name: add tfenv to $PATH
+  lineinfile:
+    path: "{{ ansible_user_dir }}/.bashrc"
+    regexp: '^export PATH="$HOME/.tfenv/bin:$PATH"'
+    line: 'export PATH="$HOME/.tfenv/bin:$PATH"'
+  when: tfenv_install.rc != 0
+  
+- name: Install terraform
+  command: tfenv install
+  when: tfenv_install.rc != 0
+  
