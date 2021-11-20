@@ -59,6 +59,6 @@
   when: tfenv_install.rc != 0
   
 - name: Install terraform
-  command: {{ ansible_user_dir }}/.tfenv/bin/tfenv install 
+  command: "{{ ansible_user_dir }}/.tfenv/bin/tfenv install"
   when: tfenv_install.rc != 0
   
