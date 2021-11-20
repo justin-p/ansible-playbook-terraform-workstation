@@ -1,5 +1,5 @@
 ---
-- name: Install vscode extension.
+- name: Install vscode extension
   command: "code --install-extension {{ item }}"
   become: no
   register: result
@@ -22,7 +22,7 @@
   tags:
     - molecule-notest
 
-- name: Apply vscode settings.
+- name: Apply vscode settings
   copy:
     src: "{{ playbook_dir }}/files/settings.json"
     dest: $HOME/.config/Code/User/settings.json
