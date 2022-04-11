@@ -16,6 +16,7 @@
     - pkief.material-icon-theme
     - beardedbear.beardedtheme
     - aaron-bond.better-comments
+    - ClemensPeters.format-json
   changed_when:
     - result.stdout is not search('is already installed.')
     - (result.stdout is search('hashicorp')) and False
