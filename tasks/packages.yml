@@ -58,7 +58,10 @@
     line: 'export PATH="$HOME/.tfenv/bin:$PATH"'
   when: tfenv_install.rc != 0
   
-- name: Install terraform
+- name: Install latest Terraform version
   command: "{{ ansible_user_dir }}/.tfenv/bin/tfenv install"
   when: tfenv_install.rc != 0
   
+- name: Use latest Terraform version
+  command: "{{ ansible_user_dir }}/.tfenv/bin/tfenv use"
+  when: tfenv_install.rc != 0
