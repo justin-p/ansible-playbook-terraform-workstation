@@ -4,7 +4,7 @@
   "material-icon-theme.folders.theme": "specific",
   "editor.insertSpaces": true,
   "editor.tabSize": 2,
-  "editor.detectIndentation": true
+  "editor.detectIndentation": true,
   "files.associations": {
     "*.yml": "ansible"
   }  
