@@ -4,9 +4,9 @@
     ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Install packages.
-      include_tasks: tasks/packages.yml
+      ansible.builtin.include_tasks: tasks/packages.yml
 
     - name: Configure vscode.
-      include_tasks: tasks/vscode.yml
+      ansible.builtin.include_tasks: tasks/vscode.yml
 
-- import_playbook: "{{ playbook_dir }}/tasks/roles.yml"
+- ansible.builtin.import_playbook: "{{ playbook_dir }}/tasks/roles.yml"

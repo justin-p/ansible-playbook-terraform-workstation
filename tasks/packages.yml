@@ -1,6 +1,6 @@
 ---
 - name: Install packages using the systems package manager
-  package:
+  ansible.builtin.package:
     name: "{{ item }}"
     update_cache: true
     state: present
@@ -11,7 +11,7 @@
     - unzip
 
 - name: Ensure the snap service is started
-  service:
+  ansible.builtin.service:
     name: snapd
     state: started
   become: yes
@@ -19,7 +19,7 @@
     - molecule-notest
 
 - name: Install packages using snap
-  snap:
+  community.general.snap:
     name: "{{ item.name }}"
     classic: "{{ item.classic }}"
   become: yes
@@ -28,7 +28,7 @@
     - { name: doctl, classic: no }
 
 - name: Install packages using pip3
-  pip:
+  ansible.builtin.pip:
     name:
       - molecule
       - 'molecule-docker'
@@ -40,28 +40,28 @@
     extra_args: --user
 
 - name: Check if tfenv installed
-  command: which tfenv
+  ansible.builtin.command: which tfenv
   changed_when: false
   failed_when: false
   register: tfenv_install
   
 - name: Clone tfenv
-  git:
+  ansible.builtin.git:
     repo: https://github.com/tfutils/tfenv
     dest: "{{ ansible_user_dir }}/.tfenv"
   when: tfenv_install.rc != 0
 
 - name: Add tfenv to $PATH
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ ansible_user_dir }}/.bashrc"
     regexp: '^export PATH="$HOME/.tfenv/bin:$PATH"'
     line: 'export PATH="$HOME/.tfenv/bin:$PATH"'
   when: tfenv_install.rc != 0
   
 - name: Install latest Terraform version
-  command: "{{ ansible_user_dir }}/.tfenv/bin/tfenv install"
+  ansible.builtin.command: "{{ ansible_user_dir }}/.tfenv/bin/tfenv install"
   when: tfenv_install.rc != 0
   
 - name: Use latest Terraform version
-  command: "{{ ansible_user_dir }}/.tfenv/bin/tfenv use"
+  ansible.builtin.command: "{{ ansible_user_dir }}/.tfenv/bin/tfenv use"
   when: tfenv_install.rc != 0

@@ -1,6 +1,6 @@
 ---
 - name: Install vscode extension
-  command: "code --install-extension {{ item }}"
+  ansible.builtin.command: "code --install-extension {{ item }}"
   become: no
   register: result
   with_items:
@@ -24,7 +24,7 @@
     - molecule-notest
 
 - name: Apply vscode settings
-  copy:
+  ansible.builtin.copy:
     src: "{{ playbook_dir }}/files/settings.json"
     dest: $HOME/.config/Code/User/settings.json
     backup: true
