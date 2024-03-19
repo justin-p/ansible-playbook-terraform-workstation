@@ -1,6 +1,7 @@
 # ansible-playbook-terraform-workstation
 
-[![Github Actions](https://img.shields.io/github/workflow/status/justin-p/ansible-playbook-terraform-workstation/CI?label=Github%20Actions&logo=github&style=flat-square)](https://github.com/justin-p/ansible-playbook-terraform-workstation/actions)
+[![Github Actions](https://img.shields.io/github/actions/workflow/status/justin-p/ansible-playbook-terraform-workstation/main.yml?label=Github%20Actions&logo=github&style=flat-square)](https://github.com/justin-p/ansible-playbook-terraform-workstation/actions)
+
 
 A Ansible playbook that configures a Ubuntu client for Ansible and Terraform development in VS Code.
 
